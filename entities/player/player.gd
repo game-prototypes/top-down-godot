@@ -40,7 +40,7 @@ func _get_target_coordinates()->Vector2:
 	return mouse_position
 
 func _shoot():
-	var bullet_instance=bullet.instance() as Bullet
+	var bullet_instance=bullet.instance() as BulletTrail
 	var target=_get_target_coordinates()
 	
 	bullet_instance.set_path(position, target)

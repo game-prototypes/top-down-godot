@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://entities/player/bullet/bullet.gd" type="Script" id=1]
+[ext_resource path="res://entities/player/bullet_trail/bullet_trail.gd" type="Script" id=1]
 
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0.0222222, 0.0909091 ), 0.0, 0.0, 0, 0, Vector2( 0.994444, 0.163636 ), 0.0, 0.0, 0, 0 ]
@@ -26,7 +26,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0.14902 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[node name="Bullet" type="Line2D"]
+[node name="BulletTrail" type="Line2D"]
 modulate = Color( 1, 1, 1, 0.733333 )
 show_behind_parent = true
 points = PoolVector2Array( 0, 0, 200, 0 )
