@@ -6,12 +6,11 @@ export var damage:int=10
 export (PackedScene) var bullet
 
 onready var raycast:=$RayCast2D
+onready var gun_sound:=$GunSound
 
 func _process(delta):
 	_movement_update(delta)
 	_look_update(delta)
-
-
 
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("shoot"):
@@ -40,7 +39,8 @@ func _get_target_coordinates()->Vector2:
 	return mouse_position
 
 func _shoot():
-	var bullet_instance=bullet.instance() as BulletTrail
+	gun_sound.play()
+	var bullet_instance=bullet.instance()
 	var target=_get_target_coordinates()
 	
 	bullet_instance.set_path(position, target)
