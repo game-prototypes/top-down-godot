@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/enemy/enemy.tscn" type="PackedScene" id=2]
 
 [node name="Main" type="Node2D"]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 280.653, 148.651 )
+
+[node name="Enemy" parent="." instance=ExtResource( 2 )]
+position = Vector2( 624.543, 94.4934 )
