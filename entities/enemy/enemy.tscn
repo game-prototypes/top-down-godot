@@ -1,10 +1,27 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://entities/enemy/enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/evil_icon.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.7227, 32.1698 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.231373, 0.231373, 0.231373, 0 )
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 0.447059 )
+draw_center = false
 
 [node name="Enemy" type="Node2D" groups=[
 "enemy",
@@ -19,3 +36,19 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
+
+[node name="LifeBar" type="ProgressBar" parent="."]
+modulate = Color( 0.176471, 0.972549, 0.121569, 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -29.5
+margin_top = -50.0
+margin_right = 29.5
+margin_bottom = -36.0
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}

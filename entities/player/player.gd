@@ -43,12 +43,12 @@ func _shoot():
 	var bullet_instance=bullet.instance()
 	var target=_get_target_coordinates()
 	
-	bullet_instance.set_path(position, target)
-	owner.add_child(bullet_instance)
 	raycast.cast_to=to_local(target)
 	raycast.force_raycast_update()
 	if raycast.is_colliding():
+		target=raycast.get_collision_point()
 		var collision_node=raycast.get_collider().get_parent() as Node
 		if collision_node.is_in_group("enemy"):
 			collision_node.on_damage(damage)
-		
+	bullet_instance.set_path(position, target)
+	owner.add_child(bullet_instance)
