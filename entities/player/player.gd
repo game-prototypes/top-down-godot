@@ -1,6 +1,7 @@
 extends Node2D
 
 export var speed:float=100
+export var damage:int=10
 
 export (PackedScene) var bullet
 
@@ -12,7 +13,7 @@ func _process(delta):
 
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_just_pressed("shoot"):
 		_shoot()
 
@@ -30,7 +31,7 @@ func _movement_update(delta):
 	velocity = velocity.normalized() * speed
 	position += velocity * delta
 
-func _look_update(delta):
+func _look_update(_delta):
 	var target=_get_target_coordinates()
 	look_at(target)
 
@@ -46,5 +47,8 @@ func _shoot():
 	owner.add_child(bullet_instance)
 	raycast.cast_to=to_local(target)
 	raycast.force_raycast_update()
-	#print(position, target)
-	print(raycast.is_colliding())
+	if raycast.is_colliding():
+		var collision_node=raycast.get_collider().get_parent() as Node
+		if collision_node.is_in_group("enemy"):
+			collision_node.on_damage(damage)
+		

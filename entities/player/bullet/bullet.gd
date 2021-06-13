@@ -7,5 +7,5 @@ func set_path(_origin:Vector2, _target:Vector2):
 	add_point(_origin)
 	add_point(_target)
 
-func _on_animation_finished(anim_name):
+func _on_animation_finished(_anim_name):
 	queue_free()
