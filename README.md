@@ -1,7 +1,22 @@
 # top-down-godot
 A simple top-down shooter for learning godot
 
+* Node vs. Scene
+* Input
+* Ready, process and physics process
+* Raycasting (hitscan weapons)
+* Groups
+* Signals
+* PackedScenes
+* Line2D
+* Sound
 
+
+
+----
+TO DO
+* Autoload
+* HUD
 
 # Acknowledgements
 

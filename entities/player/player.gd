@@ -1,4 +1,4 @@
-extends Node2D
+extends KinematicBody2D
 
 export var speed:float=100
 export var damage:int=10
@@ -7,15 +7,17 @@ export (PackedScene) var bullet
 
 onready var raycast:=$RayCast2D
 onready var gun_sound:=$GunSound
+onready var light:=$LighTorch
 
 func _process(delta):
-	_movement_update(delta)
 	_look_update(delta)
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	if Input.is_action_just_pressed("shoot"):
 		_shoot()
-
+	if Input.is_action_just_pressed("secondary_shoot"):
+		_secondary_shoot()
+	_movement_update(delta)
 
 func _movement_update(delta):
 	var velocity = Vector2()
@@ -28,20 +30,21 @@ func _movement_update(delta):
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
 	velocity = velocity.normalized() * speed
-	position += velocity * delta
+	move_and_slide(velocity)
 
 func _look_update(_delta):
 	var target=_get_target_coordinates()
 	look_at(target)
 
 func _get_target_coordinates()->Vector2:
-	var mouse_position=get_viewport().get_mouse_position()
-	return mouse_position
+	# Returns the coordinates in the world, regarless of camera or node
+	return get_global_mouse_position() 
 
 func _shoot():
 	gun_sound.play()
 	var bullet_instance=bullet.instance()
 	var target=_get_target_coordinates()
+	
 	
 	raycast.cast_to=to_local(target)
 	raycast.force_raycast_update()
@@ -52,3 +55,6 @@ func _shoot():
 			collision_node.on_damage(damage)
 	bullet_instance.set_path(position, target)
 	owner.add_child(bullet_instance)
+
+func _secondary_shoot():
+	pass
