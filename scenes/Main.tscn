@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/enemy/enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://entities/map/map_tileset.tres" type="TileSet" id=3]
 [ext_resource path="res://assets/LightSprite.png" type="Texture" id=4]
+[ext_resource path="res://scenes/main.gd" type="Script" id=5]
 
 [node name="Main" type="Node2D"]
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -14,7 +16,7 @@ __meta__ = {
 position = Vector2( 280.653, 148.651 )
 
 [node name="LighTorch" type="Light2D" parent="Player"]
-position = Vector2( 26.6536, -0.470108 )
+position = Vector2( 30.021, -0.470108 )
 scale = Vector2( 2.26973, 1.89032 )
 texture = ExtResource( 4 )
 color = Color( 0.905882, 0.882353, 0.545098, 1 )
@@ -27,7 +29,12 @@ position = Vector2( 624.543, 94.4934 )
 [node name="Enemy2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 357.86, 500.868 )
 
-[node name="Map" type="TileMap" parent="."]
+[node name="Map" type="Navigation2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tilemap" type="TileMap" parent="Map"]
 z_index = -10
 tile_set = ExtResource( 3 )
 format = 1

@@ -10,6 +10,9 @@ A simple top-down shooter for learning godot
 * PackedScenes
 * Line2D
 * Sound
+* Light
+* Tilemap
+* KineticBody/physics (a bit)
 
 
 
@@ -21,3 +24,4 @@ TO DO
 # Acknowledgements
 
 * [pistol.wav](https://opengameart.org/content/gun-sound-effects) by KonitaTutorials, CC-BY-SA 3.0
+* [light_sprite.png](https://www.gdquest.com/tutorial/godot/2d/lighting-with-normal-maps/) by gdquest.com

@@ -24,6 +24,10 @@ config/name="top-down-shooter"
 run/main_scene="res://scenes/Main.tscn"
 config/icon="res://assets/icon.png"
 
+[autoload]
+
+GlobalNavigation="*res://autoload/global_navigation.gd"
+
 [input]
 
 move_down={
