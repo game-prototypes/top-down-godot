@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://entities/enemy/enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/evil_icon.png" type="Texture" id=2]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 1, 1, 1 )
 border_width_left = 1
 border_width_top = 1
@@ -16,15 +16,12 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0, 0, 0, 0.447059 )
 draw_center = false
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 32.0877, 32.6568 )
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32.7227, 32.1698 )
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 31.8997, 31.7309 )
 
 [node name="Enemy" type="KinematicBody2D" groups=[
 "enemy",
@@ -46,8 +43,8 @@ margin_left = -29.5
 margin_top = -50.0
 margin_right = 29.5
 margin_bottom = -36.0
-custom_styles/fg = SubResource( 2 )
-custom_styles/bg = SubResource( 3 )
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
 value = 100.0
 percent_visible = false
 __meta__ = {
@@ -56,15 +53,4 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 4 )
-__meta__ = {
-"_editor_description_": "Collision shape to be used for wall collision"
-}
-
-[node name="Area2D" type="Area2D" parent="."]
-__meta__ = {
-"_editor_description_": "Area will detect our bullets (raycast)"
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 1 )
+shape = SubResource( 3 )

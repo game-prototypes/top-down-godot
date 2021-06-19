@@ -71,7 +71,7 @@ func _shoot():
 	var collision_point=target # If we don't hit anything, the bullet will end on our mouse position
 	if gun_raycast.is_colliding(): # We hit something? (Collider between the player and mouse)
 		collision_point=gun_raycast.get_collision_point() # Updates the bullet position if we hit something
-		var collision_node=gun_raycast.get_collider().get_parent() as Node # The thing we hit
+		var collision_node=gun_raycast.get_collider() # The thing we hit
 		
 		if collision_node.is_in_group("enemy"): # We use groups to identify enemies
 			collision_node.on_damage(damage) # damage the enemy (enemy.gd)

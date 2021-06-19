@@ -29,6 +29,11 @@ config/icon="res://icon.png"
 GlobalNavigation="*res://autoload/global_navigation.gd"
 Music="*res://autoload/music.tscn"
 
+[debug]
+
+gdscript/warnings/unused_argument=false
+gdscript/warnings/return_value_discarded=false
+
 [input]
 
 move_down={
