@@ -2,7 +2,7 @@ extends Node2D
 
 # The main script will handle all basic setup and orchestration
 
-onready var player:=$Player
+onready var player:Player=$Player
 # This node constains all enemies as children
 onready var enemies:=$Enemies
 # Text to display on game over

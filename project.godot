@@ -9,13 +9,13 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Line2D",
-"class": "BulletTrail",
+"base": "KinematicBody2D",
+"class": "Player",
 "language": "GDScript",
-"path": "res://entities/player/bullet_trail/bullet_trail.gd"
+"path": "res://entities/player/player.gd"
 } ]
 _global_script_class_icons={
-"BulletTrail": ""
+"Player": ""
 }
 
 [application]

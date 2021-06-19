@@ -34,9 +34,15 @@ width_curve = SubResource( 1 )
 default_color = Color( 0.603922, 0.305882, 0.164706, 1 )
 gradient = SubResource( 2 )
 script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "Line to represent a bullet trail"
+}
 
 [node name="TrailAnimation" type="AnimationPlayer" parent="."]
 autoplay = "bullet_trail"
 anims/bullet_trail = SubResource( 3 )
+__meta__ = {
+"_editor_description_": "This animation will fade in and out the line"
+}
 
 [connection signal="animation_finished" from="TrailAnimation" to="." method="_on_animation_finished"]
