@@ -12,19 +12,10 @@ script = ExtResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }
+game_over_music = ExtResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 286.31, 151.479 )
-
-[node name="Enemy" parent="." instance=ExtResource( 2 )]
-pause_mode = 1
-position = Vector2( 624.543, 94.4934 )
-speed = 50.0
-
-[node name="Enemy2" parent="." instance=ExtResource( 2 )]
-pause_mode = 1
-position = Vector2( 378.549, 432.856 )
-speed = 50.0
 
 [node name="Map" parent="." instance=ExtResource( 3 )]
 
@@ -32,12 +23,16 @@ speed = 50.0
 position = Vector2( 502.186, 296.65 )
 current = true
 zoom = Vector2( 1.05, 1.05 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.164706, 0.164706, 0.164706, 1 )
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true,
+"_editor_description_": "This ensures the scene is dark by default"
+}
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -56,4 +51,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="dead" from="Player" to="." method="_on_player_dead"]
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 2 )]
+pause_mode = 1
+position = Vector2( 378.549, 432.856 )
+speed = 50.0
+
+[node name="Enemy" parent="Enemies" instance=ExtResource( 2 )]
+pause_mode = 1
+position = Vector2( 624.543, 94.4934 )
+speed = 50.0
+
+[connection signal="dead" from="Player" to="." method="on_player_dead"]

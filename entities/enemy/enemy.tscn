@@ -3,9 +3,6 @@
 [ext_resource path="res://entities/enemy/enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/evil_icon.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32.7227, 32.1698 )
-
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 1, 1, 1, 1 )
 border_width_left = 1
@@ -26,19 +23,20 @@ draw_center = false
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 32.0877, 32.6568 )
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32.7227, 32.1698 )
+
 [node name="Enemy" type="KinematicBody2D" groups=[
 "enemy",
 ]]
 script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "Enemy scene, will follow the player and react to bullets. It is a kinematic node for collision detection"
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.937255, 0.227451, 0.227451, 1 )
 texture = ExtResource( 2 )
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 1 )
 
 [node name="LifeBar" type="ProgressBar" parent="."]
 modulate = Color( 0.176471, 0.972549, 0.121569, 1 )
@@ -53,8 +51,20 @@ custom_styles/bg = SubResource( 3 )
 value = 100.0
 percent_visible = false
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": false,
+"_editor_description_": "This is a Control element, it will display life using a custom style"
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 4 )
+__meta__ = {
+"_editor_description_": "Collision shape to be used for wall collision"
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+__meta__ = {
+"_editor_description_": "Area will detect our bullets (raycast)"
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )

@@ -9,7 +9,8 @@ outlines = [ PoolVector2Array( 25.1198, 29.9342, 25.1198, 295.03, 209.556, 230.7
 
 [node name="Map" type="Navigation2D"]
 __meta__ = {
-"_edit_lock_": true
+"_edit_lock_": true,
+"_editor_description_": "Our map, the node is a navigation2D node as the enemy will use this node + the NavigationPolygon for navigation"
 }
 
 [node name="Tilemap" type="TileMap" parent="."]
