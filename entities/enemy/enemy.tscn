@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://entities/enemy/enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/evil_icon.png" type="Texture" id=2]
@@ -23,7 +23,10 @@ corner_radius_bottom_left = 2
 bg_color = Color( 0, 0, 0, 0.447059 )
 draw_center = false
 
-[node name="Enemy" type="Node2D" groups=[
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 32.0877, 32.6568 )
+
+[node name="Enemy" type="KinematicBody2D" groups=[
 "enemy",
 ]]
 script = ExtResource( 1 )
@@ -52,3 +55,6 @@ percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 4 )

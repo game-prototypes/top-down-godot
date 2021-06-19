@@ -1,4 +1,4 @@
-extends Node2D
+extends KinematicBody2D
 
 export var life:int = 100
 export var speed:float=100
@@ -14,7 +14,9 @@ func _ready():
 func _process(delta):
 	if target:
 		var path=GlobalNavigation.get_navigation_path(position, target.position)
-		# TODO: move to path
+		var movement_vector:Vector2=(path[1] - path[0]).normalized()
+		var velocity=movement_vector*speed
+		move_and_slide(velocity)
 
 func set_target(target_node:Node2D):
 	target=target_node

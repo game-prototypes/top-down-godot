@@ -25,3 +25,4 @@ TO DO
 
 * [pistol.wav](https://opengameart.org/content/gun-sound-effects) by KonitaTutorials, CC-BY-SA 3.0
 * [light_sprite.png](https://www.gdquest.com/tutorial/godot/2d/lighting-with-normal-maps/) by gdquest.com
+* [game_over.mp3](https://www.youtube.com/watch?v=BH-5l6G4_Lo) by cenorexia

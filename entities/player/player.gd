@@ -9,15 +9,16 @@ onready var raycast:=$RayCast2D
 onready var gun_sound:=$GunSound
 onready var light:=$LighTorch
 
+signal dead
+
 func _process(delta):
 	_look_update(delta)
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("shoot"):
 		_shoot()
-	if Input.is_action_just_pressed("secondary_shoot"):
-		_secondary_shoot()
 	_movement_update(delta)
+	_collision_update()
 
 func _movement_update(delta):
 	var velocity = Vector2()
@@ -45,7 +46,6 @@ func _shoot():
 	var bullet_instance=bullet.instance()
 	var target=_get_target_coordinates()
 	
-	
 	raycast.cast_to=to_local(target)
 	raycast.force_raycast_update()
 	if raycast.is_colliding():
@@ -56,5 +56,9 @@ func _shoot():
 	bullet_instance.set_path(position, target)
 	owner.add_child(bullet_instance)
 
-func _secondary_shoot():
-	pass
+func _collision_update():
+	for i in get_slide_count():
+		var collider := get_slide_collision(i).collider
+		if collider.is_in_group("enemy"):
+			emit_signal("dead")
+		
