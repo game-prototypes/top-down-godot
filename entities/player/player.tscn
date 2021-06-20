@@ -31,7 +31,6 @@ scale = Vector2( 0.0266022, 0.0470762 )
 texture = ExtResource( 2 )
 
 [node name="GunRaycast" type="RayCast2D" parent="."]
-cast_to = Vector2( 1000, 0 )
 collide_with_areas = true
 __meta__ = {
 "_edit_lock_": true,
