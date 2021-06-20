@@ -21,13 +21,15 @@ onready var gun_sound:=$GunSound #BANG!
 signal dead
 
 func _process(delta): # Called on screen render (glorious FPS), delta is the time elapsed since last called
-	_look_update(delta) # Rotate node to match global mouse position
+	pass
 
 func _physics_process(delta): # Called on physics render
+	_look_update() # Rotate node to match global mouse position
 	if Input.is_action_just_pressed("shoot"): # The "shoot" action can be configured in project settings
 		_shoot()
 	_movement_update(delta) # Updates player movement
 	_collision_update() # Updates collision detection
+
 
 func _movement_update(delta):
 	var direction = Vector2()
@@ -48,7 +50,7 @@ func _movement_update(delta):
 	# If a collision happens, the player will slide
 	move_and_slide(velocity) 
 
-func _look_update(_delta):
+func _look_update():
 	# Returns global coordinates of the mouse in the world, not the screen position
 	# Global means that it doesn't matter where the player is
 	var target=_get_target_position()
