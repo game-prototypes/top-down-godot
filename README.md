@@ -15,13 +15,13 @@ A simple top-down shooter for learning [Godot](https://godotengine.org). Code av
 
 # More Resources
 
-* https://godotengine.org
+* [Godot Engine](https://godotengine.org)
     * [Your First Game](https://docs.godotengine.org/en/stable/getting_started/step_by_step/your_first_game.html)
-* https://www.gdquest.com
-    * https://www.gdquest.com/tutorial/godot/2d/your-first-game
+* [GDQuest](https://www.gdquest.com)
+    * [Your First Game](https://www.gdquest.com/tutorial/godot/2d/your-first-game)
     * [The Godot Game Engine Explained in 5 Minutes](https://www.youtube.com/watch?v=KjX5llYZ5eQ)
-* https://kidscancode.org/godot_recipes/
-* https://opengameart.org
+* [Kids Can Code Recipes](https://kidscancode.org/godot_recipes/)
+* [Open Game Art](https://opengameart.org)
 
 # Acknowledgements
 
