@@ -1,6 +1,7 @@
 # Godot Top Down Shooter Example
-_by @angrykoala_
-A simple top-down shooter for learning [Godot](https://godotengine.org). Code available at https://github.com/angrykoala/top-down-godot.
+_by @angrykoala_   
+A simple top-down shooter for learning [Godot](https://godotengine.org).    
+Code available at https://github.com/angrykoala/top-down-godot.
 
 ![Screenshot](./screenshot.png)
 
